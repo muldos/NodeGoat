@@ -1,0 +1,19 @@
+# socket.yaml
+version: 2
+
+# Définit le niveau d'alerte qui va faire échouer la GitHub Action (et bloquer une PR)
+failOn:
+  - critical
+  - high
+
+# Configuration des fonctionnalités automatiques
+features:
+  # Permet à Socket d'ajouter des commentaires directement dans les PR des développeurs
+  pullRequestComments: true
+  # Active l'analyse automatique à chaque commit
+  projectHealth: true
+
+# Si tu veux que Socket ignore temporairement une fausse alerte (ex: light-s3-client)
+# ignore:
+#   pypi:
+#     - light-s3-client
