@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * *"
   push:
     branches:
-      - main
+      - master
 permissions:
   pull-requests: write
   contents: write
@@ -22,6 +22,9 @@ jobs:
       matrix:
         branch: [ "master" ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}    
       - uses: jfrog/frogbot@v3
         env:
           JF_URL: ${{ secrets.JF_URL }}
